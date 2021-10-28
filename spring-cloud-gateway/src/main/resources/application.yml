@@ -1,0 +1,42 @@
+
+server:
+  port: 8082
+
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8084/eureka/
+  instance:
+    hostname: localhost
+    
+    
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: SPRING-CLOUD-GATEWAY
+  cloud:
+    gateway:
+      routes:
+      - id: productServiceModule
+        uri: http://localhost:8080/
+        predicates:
+        - Path=/product-service/**
+          
+      - id: userServiceModule
+        uri: http://localhost:8085/
+        predicates:
+        - Path=/user-service/**
+          
+      - id: departmentServiceModule
+        uri: http://localhost:8086/
+        predicates:
+        - Path=/department-service/**                            
+        
+        
+    
+    
+    

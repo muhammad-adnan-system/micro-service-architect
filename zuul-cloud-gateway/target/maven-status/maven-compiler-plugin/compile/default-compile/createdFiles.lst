@@ -1,0 +1,3 @@
+com\system\api\zuul\cloud\gateway\filter\LoggingFilter.class
+com\system\api\zuul\cloud\gateway\ZuulCloudGatewayApplication$1.class
+com\system\api\zuul\cloud\gateway\ZuulCloudGatewayApplication.class

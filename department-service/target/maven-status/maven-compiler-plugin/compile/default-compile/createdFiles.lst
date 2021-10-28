@@ -1,0 +1,3 @@
+com\system\api\department\DepartmentApplication.class
+com\system\api\department\gateway\UserServiceGateway.class
+com\system\api\department\controller\DepartmentInfoController.class

@@ -1,0 +1,53 @@
+server:
+  port: 8083
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8084/eureka/
+  instance:
+    hostname: localhost
+    
+    
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: ZUUL-CLOUD-GATEWAY
+    
+
+management: 
+  endpoints: 
+    web: 
+      exposure: 
+        include: 'routes' 
+    
+zuul:
+  routes:
+    user-service:
+      path: /user-service/**
+      #url: http://localhost:8085/
+      serviceId: user-service
+      strip-prefix: false
+      
+    product-service:
+      path: /product-service/**
+      #url: http://localhost:8080/
+      serviceId: product-service
+      strip-prefix: false
+      
+    department-service:
+      path: /product-service/**
+      #url: http://localhost:8086/
+      serviceId: department-service
+      strip-prefix: false
+      
+      
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          netflix: trace
+      
